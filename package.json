@@ -1,0 +1,19 @@
+{
+  "name": "kitchenswap-scrappers",
+  "version": "1.0.0",
+  "description": "Scrappers for DEX aggregation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "kitchenswap:kitchenswap/kitchenswap-scrappers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^8.0.0"
+  }
+}
