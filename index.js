@@ -1,3 +1,19 @@
-console.log('hello world!');
+const puppeteer = require("puppeteer");
 
-return 0;
+const main = async () => {
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox"]
+  });
+
+  const page = await browser.newPage();
+
+  await page.goto('https://www.saltswap.finance/pools');
+
+  const title = await page.evaluate(() => document.title);
+
+  await browser.close();
+
+  console.log(title)
+}
+
+main();
