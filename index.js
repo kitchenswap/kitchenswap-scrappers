@@ -2,8 +2,8 @@ const puppeteer = require("puppeteer");
 
 const main = async () => {
   const browser = await puppeteer.launch({
-    headless: true,
-    args: ["--no-sandbox"]
+    executablePath: process.env.PUPPETEER_EXEC_PATH, // set by docker container
+    headless: false,
   });
 
   const page = await browser.newPage();
