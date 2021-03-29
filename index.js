@@ -14,7 +14,7 @@ const main = async () => {
 
   const data = [];
 
-  for(let i = 0; i <= scrappers.length; i++) {
+  for(let i = 0; i < scrappers.length; i++) {
     const scrapper = scrappers[i];
     const { id, url, onScrap, delay = 10000 } = scrapper;
 
