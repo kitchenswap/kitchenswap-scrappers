@@ -3,6 +3,7 @@ const blueswap = require('./blueswap');
 const cafeswap = require('./cafeswap');
 const goosedefi = require('./goosedefi');
 const icebergdefi = require('./icebergdefi');
+const kebabfinance = require('./kebabfinance');
 const pancakeswap = require('./pancakeswap');
 const pandayield = require('./pandayield');
 const saltswap = require('./saltswap');
@@ -13,6 +14,7 @@ const scrappers = [
   cafeswap,
   goosedefi,
   icebergdefi,
+  kebabfinance,
   pancakeswap,
   pandayield,
   saltswap
