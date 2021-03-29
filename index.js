@@ -12,21 +12,22 @@ const main = async () => {
   const browser = await chromium.launch({ args: ['--no-sandbox'] })
   const context = await browser.newContext();
 
-  const data = await Promise.all(scrappers.map(async (scrapper) => {
+  const data = [];
+
+  for(let i = 0; i <= scrappers.length; i++) {
+    const scrapper = scrappers[i];
     const { id, url, onScrap, delay = 10000 } = scrapper;
 
     const page = await context.newPage();
     await page.goto(url);
     await page.waitForTimeout(delay);
     const value = await page.evaluate(onScrap);
+    await page.close();
     
     console.log(id, value);
     
-    return {
-      id,
-      value
-    }
-  }));
+    data.push({ id, value })
+  }
 
   await browser.close();
 
