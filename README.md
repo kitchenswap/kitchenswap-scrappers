@@ -12,9 +12,9 @@ Scrappers for DEX aggregation
 - https://pandayield.com/#/pools
 - https://slime.finance/pools
 - https://www.goosedefi.com/nests
+- https://www.jiggly.finance/#/nests
 - https://www.saltswap.finance/pools
 
 ## in progress
 
 ## next
-- https://www.jiggly.finance/#/nests
