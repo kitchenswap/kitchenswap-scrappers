@@ -7,6 +7,7 @@ const kebabfinance = require('./kebabfinance');
 const pancakeswap = require('./pancakeswap');
 const pandayield = require('./pandayield');
 const saltswap = require('./saltswap');
+const slimefinance = require('./slimefinance');
 
 const scrappers = [
   apeswap,
@@ -17,7 +18,8 @@ const scrappers = [
   kebabfinance,
   pancakeswap,
   pandayield,
-  saltswap
+  saltswap,
+  slimefinance
 ];
 
 module.exports = scrappers;
