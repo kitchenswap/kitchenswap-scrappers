@@ -2,7 +2,7 @@ const id = 'cafeswap';
 
 const url = 'https://app.cafeswap.finance/pools';
 
-const delay = 10000;
+const delay = 15000;
 
 var onScrap = () => { 
   var poolCards = document.querySelectorAll('.sc-hOqqkJ');

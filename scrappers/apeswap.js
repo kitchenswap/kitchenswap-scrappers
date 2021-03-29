@@ -2,7 +2,7 @@ const id = 'apeswap';
 
 const url = 'https://apeswap.finance/pools';
 
-const delay = 10000;
+const delay = 15000;
 
 var onScrap = () => {
   const poolCards = document.querySelectorAll('.sc-bTvRPi');

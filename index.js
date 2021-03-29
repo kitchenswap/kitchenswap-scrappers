@@ -13,7 +13,7 @@ const main = async () => {
   const context = await browser.newContext();
 
   const data = await Promise.all(scrappers.map(async (scrapper) => {
-    const { id, url, onScrap, delay = 5000 } = scrapper;
+    const { id, url, onScrap, delay = 10000 } = scrapper;
 
     const page = await context.newPage();
     await page.goto(url);
