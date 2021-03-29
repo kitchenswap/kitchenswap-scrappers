@@ -2,6 +2,8 @@ const id = 'kebabfinance';
 
 const url = 'https://kebabfinance.com/#/pools';
 
+const delay = 15000;
+
 var onScrap = () => { 
   var poolCards = document.querySelectorAll('.sc-gkdzZj');
 
@@ -26,6 +28,7 @@ var onScrap = () => {
 }
 
 module.exports = {
+  delay,
   id,
   onScrap,
   url
