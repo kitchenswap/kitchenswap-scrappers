@@ -4,6 +4,7 @@ Scrappers for DEX aggregation
 
 ## done
 - https://apeswap.finance/pools
+- https://app.blueswap.finance/pools
 - https://pancakeswap.finance/pools
 - https://pandayield.com/#/pools
 - https://www.goosedefi.com/nests
@@ -11,7 +12,7 @@ Scrappers for DEX aggregation
 
 ## in progress
 
-- https://app.blueswap.finance/pools
+## next
 - https://app.cafeswap.finance/pools
 - https://icebergdefi.com/igloo
 - https://kebabfinance.com/#/pools
