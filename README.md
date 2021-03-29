@@ -2,6 +2,8 @@
 
 Scrappers for DEX aggregation
 
+https://gist.github.com/hannawaffle/f48cf25668db546bbcb66aeb3f1ead91
+
 ## done
 - https://apeswap.finance/pools
 - https://app.blueswap.finance/pools
@@ -18,3 +20,8 @@ Scrappers for DEX aggregation
 ## in progress
 
 ## next
+
+
+##
+
+Using https://github.com/marketplace/actions/gist-sync
