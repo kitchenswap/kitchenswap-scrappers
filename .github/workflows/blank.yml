@@ -37,7 +37,7 @@ jobs:
       - name: Test
         uses: ianwalter/playwright-container@ec253ce35910412cc6607f5d7cfbbe89fb77c9b4
         with:
-          args: npm save
+          args: npm run save
       - uses: popsiclestick/gist-sync-action@v1.2.0
         id: sync
         with:
