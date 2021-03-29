@@ -1,4 +1,4 @@
-const name = 'saltswap';
+const id = 'saltswap';
 
 const url = 'https://www.saltswap.finance/pools';
 
@@ -47,7 +47,7 @@ const onScrap = () => {
 }
 
 module.exports = {
-  name,
+  id,
   onScrap,
   url
 };
