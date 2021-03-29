@@ -1,4 +1,5 @@
 const { chromium } = require('playwright');
+const fs = require('fs');
 
 let scrappers = require('./scrappers');
 
@@ -28,6 +29,12 @@ const main = async () => {
   }));
 
   await browser.close();
+
+  if (process.env.OUTPUT_FILE) {
+    fs.writeFile(process.env.OUTPUT_FILE, JSON.stringify(data, undefined, 2), function (err) {
+      if (err) return console.log(err);
+    });
+  }
 
   console.log(JSON.stringify(data, undefined, 2))
 }
