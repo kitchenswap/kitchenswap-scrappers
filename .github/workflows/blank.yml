@@ -38,9 +38,16 @@ jobs:
         uses: ianwalter/playwright-container@ec253ce35910412cc6607f5d7cfbbe89fb77c9b4
         with:
           args: npm run save
-      - uses: popsiclestick/gist-sync-action@v1.2.0
-        id: sync
+      # - uses: popsiclestick/gist-sync-action@v1.2.0
+      #   id: sync
+      #   with:
+      #     auth: ${{ secrets.GIST_TOKEN }}
+      #     gist_url: https://gist.github.com/hannawaffle/f48cf25668db546bbcb66aeb3f1ead91
+      #     github_file: dex-pools.json
+      - name: Deploy
+        uses: exuanbo/actions-deploy-gist@v1
         with:
-          auth: ${{ secrets.GIST_TOKEN }}
-          gist_url: https://gist.github.com/hannawaffle/f48cf25668db546bbcb66aeb3f1ead91
-          github_file: dex-pools.json
+          token: ${{ secrets.GIST_TOKEN }}
+          gist_id: f48cf25668db546bbcb66aeb3f1ead91
+          gist_file_name: dex-pools.json
+          file_path: ./dex-pools.json

@@ -23,5 +23,6 @@ https://gist.github.com/hannawaffle/f48cf25668db546bbcb66aeb3f1ead91
 
 
 ##
+Using https://github.com/marketplace/actions/deploy-to-gist
 
-Using https://github.com/marketplace/actions/gist-sync
+tried https://github.com/marketplace/actions/gist-sync
