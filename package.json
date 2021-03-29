@@ -4,7 +4,8 @@
   "description": "Scrappers for DEX aggregation",
   "main": "index.js",
   "scripts": {
-    "start": "node --unhandled-rejections=strict index.js"
+    "start": "node --unhandled-rejections=strict index.js",
+    "save": "OUTPUT_FILE='dex-pools.json' npm start"
   },
   "repository": {
     "type": "git",
