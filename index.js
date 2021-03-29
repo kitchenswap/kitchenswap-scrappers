@@ -12,11 +12,11 @@ const main = async () => {
   const context = await browser.newContext();
 
   const data = await Promise.all(scrappers.map(async (scrapper) => {
-    const { id, url, onScrap } = scrapper;
+    const { id, url, onScrap, delay = 5000 } = scrapper;
 
     const page = await context.newPage();
     await page.goto(url);
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(delay);
     const value = await page.evaluate(onScrap);
     
     console.log(id, value);
