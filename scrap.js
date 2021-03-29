@@ -1,6 +1,6 @@
-const puppeteer = require("puppeteer");
+const saltSwapUrl = 'https://www.saltswap.finance/pools';
 
-const saltSwapScrap = () => {
+const scrapSaltSwap = () => {
   var SELECTORS = {
     POOL_CARDS: 'div.sc-XhUPp',
     ROWS: ':scope > div.sc-eCssSg',
@@ -44,20 +44,7 @@ const saltSwapScrap = () => {
   return info;
 }
 
-const main = async () => {
-  const browser = await puppeteer.launch({
-    args: ["--no-sandbox", "--disable-setuid-sandbox"]
-  });
-
-  const page = await browser.newPage();
-
-  await page.goto('https://www.saltswap.finance/pools');
-
-  await page.waitForTimeout(5000);
-  const info = await page.evaluate(saltSwapScrap)
-
-  console.log(info);
-  await browser.close();
+module.exports = {
+  saltSwapUrl,
+  scrapSaltSwap
 }
-
-main();
