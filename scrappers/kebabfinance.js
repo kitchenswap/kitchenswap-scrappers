@@ -2,7 +2,26 @@ const id = 'kebabfinance';
 
 const url = 'https://kebabfinance.com/#/pools';
 
-const delay = 15000;
+const delay = 10000;
+
+var onPreScrap = () => {
+  const poolCards = document.querySelectorAll('.sc-gkdzZj');
+
+  [...poolCards].forEach((poolCard) => {
+    const details = poolCard.querySelector('div.sc-cvJHqN');
+    if (!details) {
+      return;
+    }
+
+    const detailsButton = details.querySelector('button.sc-dkmKpi');
+
+    if (!detailsButton) {
+      return;
+    }
+    
+    detailsButton.click();
+  });
+}
 
 var onScrap = () => { 
   var poolCards = document.querySelectorAll('.sc-gkdzZj');
@@ -16,11 +35,13 @@ var onScrap = () => {
     const earnToken = title.split(' ')[0];
     const stakeToken = 'KEBAB';
     const APR = poolCard.querySelector('.sc-JAcuL .sc-gsTCUz').textContent;
+    const totalLiquidity = poolCard.querySelector('div.sc-cvJHqN .sc-fybufo .sc-gsTCUz').textContent;
 
     return ({
       stakeToken,
       APR,
-      earnToken
+      earnToken,
+      totalLiquidity
     })
   })
 
@@ -30,6 +51,7 @@ var onScrap = () => {
 module.exports = {
   delay,
   id,
+  onPreScrap,
   onScrap,
   url
 };
