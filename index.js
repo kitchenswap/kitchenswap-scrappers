@@ -16,11 +16,15 @@ const main = async () => {
 
   for(let i = 0; i < scrappers.length; i++) {
     const scrapper = scrappers[i];
-    const { id, url, onScrap, delay = 10000 } = scrapper;
+    const { id, url, onPreScrap, onScrap, delay = 10000 } = scrapper;
 
     const page = await context.newPage();
     await page.goto(url);
     await page.waitForTimeout(delay);
+    if (onPreScrap) {
+      await page.evaluate(onPreScrap);
+      await page.waitForTimeout(500);
+    }
     const value = await page.evaluate(onScrap);
     await page.close();
     
