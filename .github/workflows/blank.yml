@@ -3,7 +3,10 @@ on:
   push:
     branches:
       - main
-  pull_request:
+  schedule:
+    - cron: '0 */8 * * *'  
+  workflow_dispatch: 
+  #workflow_dispatch helps run workflow anytime with a single click.
 jobs:
   build:
     runs-on: ubuntu-latest
