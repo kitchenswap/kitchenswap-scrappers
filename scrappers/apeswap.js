@@ -14,7 +14,7 @@ var onScrap = () => {
     }
     const earnToken = title.split(' ')[0];
     const stakeToken = earnToken;
-    const APR = poolCard.querySelector('.sc-jmhFOf .sc-gsTCUz').textContent;
+    const APR = poolCard.querySelector('.sc-cbDGPM  .sc-gsTCUz').textContent;
 
     return ({
       stakeToken,
