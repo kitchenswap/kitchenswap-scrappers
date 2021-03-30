@@ -2,7 +2,27 @@ const id = 'cafeswap';
 
 const url = 'https://app.cafeswap.finance/pools';
 
-const delay = 15000;
+const delay = 10000;
+
+var onPreScrap = () => {
+  const poolCards = document.querySelectorAll('.sc-hOqqkJ');
+
+  [...poolCards].forEach((poolCard) => {
+    const details = poolCard.querySelector('div.sc-kYrkKh');
+    if (!details) {
+      return;
+    }
+
+    const detailsButton = details.querySelector('button.sc-xyEjG');
+
+    if (!detailsButton) {
+      return;
+    }
+    
+    detailsButton.click();
+
+  });
+}
 
 var onScrap = () => { 
   var poolCards = document.querySelectorAll('.sc-hOqqkJ');
@@ -17,12 +37,14 @@ var onScrap = () => {
     const stakeToken = 'BREW';
     const depositFee = poolCard.querySelector('.sc-jXktwP').textContent.split(':')[1].trim();
     const APR = poolCard.querySelector('.sc-httYMd .sc-gsTCUz').textContent;
+    const totalLiquidity = poolCard.querySelector('div.sc-kYrkKh .sc-jGVbCA .sc-gsTCUz').textContent;
 
     return ({
       stakeToken,
       APR,
       earnToken,
-      depositFee
+      depositFee,
+      totalLiquidity
     })
   })
 
@@ -32,6 +54,7 @@ var onScrap = () => {
 module.exports = {
   delay,
   id,
+  onPreScrap,
   onScrap,
   url
 };
