@@ -14,7 +14,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
   "devDependencies": {
     "playwright": "^1.10.0"
   }
