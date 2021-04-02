@@ -3,15 +3,15 @@ const id = 'pancakeswap';
 const url = 'https://pancakeswap.finance/pools';
 
 var onPreScrap = () => {
-  const poolCards = document.querySelectorAll('.sc-dtwoBo');
+  const poolCards = document.querySelectorAll('div#root > div > div > div:nth-child(2) > div > div:nth-child(4) > div');
 
   [...poolCards].forEach((poolCard) => {
-    const details = poolCard.querySelector('div.sc-dkIXFM');
+    const details = poolCard.querySelector(':scope > div:nth-child(2)');
     if (!details) {
       return;
     }
 
-    const detailsButton = details.querySelector('button.sc-XhUPp');
+    const detailsButton = details.querySelector(':scope button');
 
     if (!detailsButton) {
       return;
@@ -23,10 +23,12 @@ var onPreScrap = () => {
 }
 
 var onScrap = () => { 
-  var poolCards = document.querySelectorAll('.sc-dtwoBo');
+  const poolCards = document.querySelectorAll('div#root > div > div > div:nth-child(2) > div > div:nth-child(4) > div');
 
   var info = [...poolCards].map((poolCard) => {
-    const title = poolCard.querySelector('.sc-dacFzL').textContent.trim()
+    const data = poolCard.querySelector(':scope > div:nth-child(1)');
+
+    const title = data.querySelector(':scope > div:nth-child(1)').textContent.trim()
 
     if (title.indexOf('Your Project') === 0) {
       return;
@@ -34,8 +36,10 @@ var onScrap = () => {
 
     const earnToken = title.split(' ')[0];
     const stakeToken = 'CAKE';
-    const APR = poolCard.querySelector('.sc-bQdQlF > .sc-gsTCUz').textContent;
-    const totalLiquidity = poolCard.querySelector('div.sc-dkIXFM .sc-ikPAkQ .sc-gsTCUz').textContent;
+    const APR = data.querySelector(':scope > div:nth-child(6) > div:nth-child(2)').textContent;
+
+    const details = poolCard.querySelector(':scope > div:nth-child(2)');
+    const totalLiquidity = details.querySelector(':scope > div:nth-child(2) > div > div:nth-child(2)').textContent;
 
     return ({
       stakeToken,
