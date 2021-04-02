@@ -65,11 +65,13 @@ const getCoingeckoImages = async (coingeckoList = []) => {
 
   for(let i = 0; i < coingeckoList.length; i++) {
     const { id, symbol } = coingeckoList[i];
+    console.log('fetching ', id)
     const { image } = await getCoingeckoImageInfo(id);
+    const { thumb } = image;
 
-    console.log({ id, image });
+    console.log({ id, thumb });
 
-    newList.push({ id, symbol, image });
+    newList.push({ id, symbol, thumb });
     await sleep(1000);
   }
 
