@@ -19,9 +19,7 @@ const getCurrentTokensSymbols = () => {
     });
   });
 
-  const tokens = [...tokensSet]
-    .map(token => token.toLowerCase())
-    .sort();
+  const tokens = [...tokensSet];
 
   return tokens;
 }
@@ -30,7 +28,8 @@ const getCoingeckoIds = (symbols = [], coingeckoList = []) => {
   const extendedSymbols = [];
 
   symbols.forEach((symbol) => {
-    const coingeckoInfo = coingeckoList.find((c) => c.symbol === symbol);
+    const symbolLowerCase = symbol.toLowerCase();
+    const coingeckoInfo = coingeckoList.find((c) => c.symbol === symbolLowerCase);
 
     if (coingeckoInfo) {
       const { id } = coingeckoInfo;
