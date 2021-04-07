@@ -21,7 +21,8 @@ const cleanValues = (value) => {
   return ({
     ...value,
     APR: cleanValue(value.APR),
-    totalLiquidity: cleanValue(value.totalLiquidity)
+    totalLiquidity: cleanValue(value.totalLiquidity),
+    depositFee: cleanValue(value.depositFee)
   })
 }
 
