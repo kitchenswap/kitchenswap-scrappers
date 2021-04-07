@@ -34,7 +34,7 @@ jobs:
           user_email: 'hanna.waffle@gmail.com'
           user_name: 'hannawaffle'
       - name: Get Logos
-          run: npm run token-logos
+          run: npm run tokenlogos
       - name: Deploy New logos
           if: hashFiles('token-logos.json') != ''
           uses: dmnemec/copy_file_to_another_repo_action@main

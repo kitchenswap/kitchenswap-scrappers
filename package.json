@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node --unhandled-rejections=strict index.js",
     "save": "OUTPUT_FILE='dex-pools.json' npm start",
-    "token-logos": "node coingecko.js"
+    "tokenlogos": "node coingecko.js"
   },
   "repository": {
     "type": "git",
