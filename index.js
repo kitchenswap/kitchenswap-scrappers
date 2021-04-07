@@ -8,6 +8,23 @@ if (singleRunId) {
   scrappers = scrappers.filter((scrapper) => scrapper.id === singleRunId);
 }
 
+const cleanValue = (field = '') => {
+  return parseFloat(field
+    .replace("%", "")
+    .replace("$", "")
+    .replace(/,/g, "")
+    .trim()
+  );
+}
+
+const cleanValues = (value) => {
+  return ({
+    ...value,
+    APR: cleanValue(value.APR),
+    totalLiquidity: cleanValue(value.totalLiquidity)
+  })
+}
+
 const main = async () => {
   const browser = await chromium.launch({ args: ['--no-sandbox'] })
   const context = await browser.newContext();
@@ -25,7 +42,9 @@ const main = async () => {
       await page.evaluate(onPreScrap);
       await page.waitForTimeout(500);
     }
-    const value = await page.evaluate(onScrap);
+    const scrappedValue = await page.evaluate(onScrap);
+    const value = scrappedValue.map(cleanValues);
+
     await page.close();
     
     console.log(id, value);
