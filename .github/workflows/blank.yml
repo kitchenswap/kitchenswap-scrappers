@@ -34,14 +34,14 @@ jobs:
           user_email: 'hanna.waffle@gmail.com'
           user_name: 'hannawaffle'
       - name: Get Logos
-          run: npm run tokenlogos
+        run: npm run token-logos
       - name: Deploy New logos
-          if: hashFiles('token-logos.json') != ''
-          uses: dmnemec/copy_file_to_another_repo_action@main
-          env:
-            API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-          with:
-            source_file: 'token-logos.json'
-            destination_repo: 'kitchenswap/kitchenswap-data'
-            user_email: 'hanna.waffle@gmail.com'
-            user_name: 'hannawaffle'
+        if: hashFiles('token-logos.json') != ''
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'token-logos.json'
+          destination_repo: 'kitchenswap/kitchenswap-data'
+          user_email: 'hanna.waffle@gmail.com'
+          user_name: 'hannawaffle'
