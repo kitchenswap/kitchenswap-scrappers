@@ -2,16 +2,36 @@ const id = 'slimefinance';
 
 const url = 'https://slime.finance/pools';
 
+var onPreScrap = () => {
+  const poolRows = document.querySelectorAll('#root > div > div table > tbody > tr');
+
+  [...poolRows].forEach((poolRow) => {
+    const details = poolRow.querySelector(':scope > td:last-child');
+
+    if (!details) {
+      return;
+    }
+
+    const detailsButton = details.querySelector(':scope > div > div');
+
+    if (!detailsButton) {
+      return;
+    }
+    
+    detailsButton.click();
+
+  });
+}
+
 var onScrap = () => {  
-  var poolCards = document.querySelectorAll('.sc-eHfQar');
+  const poolRows = document.querySelectorAll('#root > div > div table > tbody > tr');
   
-  var info = [...poolCards].map((poolCard) => {
-    const rows = poolCard.querySelectorAll(':scope > .sc-eCssSg');
-    const stakeToken = rows[0].querySelector('.sc-gsTCUz').textContent;
-    const APR = rows[1].querySelector('.sc-gsTCUz:nth-child(2)').textContent;
-    const earnToken = rows[2].querySelector('.sc-gsTCUz:nth-child(2)').textContent;
-    const depositFee = rows[3].querySelector('.sc-gsTCUz:nth-child(2)').textContent;
-    const totalLiquidity = poolCard.querySelector('.sc-kYrkKh .sc-eCssSg:nth-child(5) .sc-gsTCUz:nth-child(2)').textContent;
+  var info = [...poolRows].map((poolRow) => {
+    const stakeToken = poolRow.querySelector(':scope > td:nth-child(1)').textContent;
+    const APR = poolRow.querySelector(':scope > td:nth-child(3) > div > div > div:nth-child(2)').textContent;    
+    const earnToken = 'Slime';
+    const totalLiquidity = poolRow.querySelector(':scope > td:nth-child(4) > div > div > div:nth-child(2) > div > div').textContent;    
+    const depositFee = poolRow.querySelector(':scope > td:nth-child(6) > div > div > div:nth-child(2) > div > div').textContent;    
 
     return ({
       stakeToken,
