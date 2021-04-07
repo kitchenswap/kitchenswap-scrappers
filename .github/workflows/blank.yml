@@ -24,13 +24,6 @@ jobs:
         uses: ianwalter/playwright-container@ec253ce35910412cc6607f5d7cfbbe89fb77c9b4
         with:
           args: npm run save
-      # - name: Deploy Dexes
-      #   uses: exuanbo/actions-deploy-gist@v1
-      #   with:
-      #     token: ${{ secrets.GIST_TOKEN }}
-      #     gist_id: f48cf25668db546bbcb66aeb3f1ead91
-      #     gist_file_name: dex-pools.json
-      #     file_path: ./dex-pools.json
       - name: Deploy Dexes
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
@@ -40,12 +33,15 @@ jobs:
           destination_repo: 'kitchenswap/kitchenswap-data'
           user_email: 'hanna.waffle@gmail.com'
           user_name: 'hannawaffle'
-      # - name: Get Logos
-      #     run: npm run logos
-      # - name: Deploy Images
-      #   uses: exuanbo/actions-deploy-gist@v1
-      #   with:
-      #     token: ${{ secrets.GIST_TOKEN }}
-      #     gist_id: f48cf25668db546bbcb66aeb3f1ead91
-      #     gist_file_name: token-logos.json
-      #     file_path: ./token-logos.json
+      - name: Get Logos
+          run: npm run token-logos
+      - name: Deploy New logos
+          if: hashFiles('token-logos.json') != ''
+          uses: dmnemec/copy_file_to_another_repo_action@main
+          env:
+            API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+          with:
+            source_file: 'token-logos.json'
+            destination_repo: 'kitchenswap/kitchenswap-data'
+            user_email: 'hanna.waffle@gmail.com'
+            user_name: 'hannawaffle'

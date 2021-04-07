@@ -84,21 +84,32 @@ const main = async () => {
     return;
   };
 
-
-  // // try to access coingecko, exit if fails
-  // const ping = await fetch(`${BASE_URL}/ping`);
-  // if (ping.status !== 200) return;
+  const ping = await fetch(`${BASE_URL}/ping`);
+  if (ping.status !== 200) return;
 
   const coinListRes = await fetch(`${BASE_URL}/coins/list?include_platform=false`);
   const coinList = await coinListRes.json();
 
   const tokenSymbols = getCurrentTokensSymbols();
-  // console.log(tokenSymbols);
 
   const extendedTokens = getCoingeckoIds(tokenSymbols, coinList);
-  const imageData = await getCoingeckoImages(extendedTokens);
+  const alreadySavedListRes = await fetch('https://data.kitchenswap.finance/token-logos.json');
+  const alreadySavedList = await alreadySavedListRes.json();
 
-  fs.writeFile('image-data.json', JSON.stringify(imageData, undefined, 2), function (err) {
+  const missingTokens = extendedTokens.filter(token => !alreadySavedList.find(s => s.id === token.id));
+
+  if (missingTokens.length === 0) {
+    console.log('All tokens already with logo')
+    return;
+  }
+
+  console.log('Getting logo data for', missingTokens);
+  
+  const newImageData = await getCoingeckoImages(missingTokens);
+
+  const allImageData = alreadySavedList.concat(newImageData)
+
+  fs.writeFile('token-logos.json', JSON.stringify(allImageData, undefined, 2), function (err) {
     if (err) return console.log(err);
   });
 
