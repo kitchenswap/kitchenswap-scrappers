@@ -18,12 +18,23 @@ const cleanValue = (field = '') => {
 }
 
 const cleanValues = (value) => {
-  return ({
+  const {
+    APR,
+    depositFee,
+    totalLiquidity
+  } = value;
+
+  const newValue = {
     ...value,
-    APR: cleanValue(value.APR),
-    totalLiquidity: cleanValue(value.totalLiquidity),
-    depositFee: cleanValue(value.depositFee)
-  })
+    APR: cleanValue(APR),
+    totalLiquidity: cleanValue(totalLiquidity)
+  }
+
+  if (depositFee) {
+    newValue.depositFee = cleanValue(depositFee);
+  }
+
+  return newValue;
 }
 
 const main = async () => {
