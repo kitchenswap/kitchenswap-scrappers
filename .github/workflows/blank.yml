@@ -33,6 +33,18 @@ jobs:
           destination_repo: 'kitchenswap/kitchenswap-data'
           user_email: 'hanna.waffle@gmail.com'
           user_name: 'hannawaffle'
+      - name: Update Dex Urls
+        run: npm run dex-urls
+      - name: Deploy New Dex Urls
+        if: hashFiles('dex-urls.json') != ''
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'dex-urls.json'
+          destination_repo: 'kitchenswap/kitchenswap-data'
+          user_email: 'hanna.waffle@gmail.com'
+          user_name: 'hannawaffle'
       - name: Get Logos
         run: npm run token-logos
       - name: Deploy New logos
