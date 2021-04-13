@@ -1,6 +1,6 @@
 const id = 'slimefinance';
 
-const url = 'https://slime.finance/pools';
+const url = 'https://app.slime.finance/pools';
 
 var onPreScrap = () => {
   const poolRows = document.querySelectorAll('#root > div > div table > tbody > tr');
