@@ -69,9 +69,6 @@ jobs:
       #     destination_repo: 'kitchenswap/kitchenswap-data'
       #     user_email: 'hanna.waffle@gmail.com'
       #     user_name: 'hannawaffle'
-
-      - name: Get pancakebunny
-        run: npm run pancakebunny
       - name: Deploy pancakebunny
         if: hashFiles('pancakebunny.json') != ''
         uses: dmnemec/copy_file_to_another_repo_action@main
