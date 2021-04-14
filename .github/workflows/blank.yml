@@ -57,3 +57,28 @@ jobs:
           destination_repo: 'kitchenswap/kitchenswap-data'
           user_email: 'hanna.waffle@gmail.com'
           user_name: 'hannawaffle'
+      # - name: Get Contracts
+      #   run: npm run token-contracts
+      # - name: Deploy New Contracts
+      #   if: hashFiles('token-contracts.json') != ''
+      #   uses: dmnemec/copy_file_to_another_repo_action@main
+      #   env:
+      #     API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      #   with:
+      #     source_file: 'token-contracts.json'
+      #     destination_repo: 'kitchenswap/kitchenswap-data'
+      #     user_email: 'hanna.waffle@gmail.com'
+      #     user_name: 'hannawaffle'
+
+      - name: Get pancakebunny
+        run: node pancakebunny.js
+      - name: Deploy pancakebunny
+        if: hashFiles('pancakebunny.json') != ''
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'pancakebunny.json'
+          destination_repo: 'kitchenswap/kitchenswap-data'
+          user_email: 'hanna.waffle@gmail.com'
+          user_name: 'hannawaffle'
