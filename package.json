@@ -7,7 +7,9 @@
     "start": "node --unhandled-rejections=strict index.js",
     "save": "OUTPUT_FILE='dex-pools.json' npm start",
     "dex-urls": "node dexUrls.js",
-    "token-logos": "node coingecko.js"
+    "token-logos": "node coingecko.js",
+    "token-contracts": "node coingecko-contracts.js",
+    "pancakebunny": "node pancakebunny.js"
   },
   "repository": {
     "type": "git",

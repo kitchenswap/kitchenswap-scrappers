@@ -71,7 +71,7 @@ jobs:
       #     user_name: 'hannawaffle'
 
       - name: Get pancakebunny
-        run: node pancakebunny.js
+        run: npm run pancakebunny
       - name: Deploy pancakebunny
         if: hashFiles('pancakebunny.json') != ''
         uses: dmnemec/copy_file_to_another_repo_action@main
