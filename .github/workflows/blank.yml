@@ -4,7 +4,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 */1 * * *'  
+    - cron: '0 */4 * * *'  
   workflow_dispatch: 
   #workflow_dispatch helps run workflow anytime with a single click.
 jobs:
