@@ -33,11 +33,7 @@ var onScrap = () => {
         return;
     }
     const earnToken = title.split(' ')[0];
-    const approveButton = data.querySelector(':scope > div:nth-child(5) button');
-    if (!approveButton) {
-        return;
-    }
-    const stakeToken = approveButton.textContent.trim().split(" ")[1];
+    const stakeToken = 'BANANA';
     const APRContainer = data.querySelector(':scope > div:nth-child(6) > div:nth-child(3)');
     if (!APRContainer) {
       return;
