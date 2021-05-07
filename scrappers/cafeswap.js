@@ -38,10 +38,12 @@ var onScrap = () => {
     
     const earnToken = title.split(' ')[0];
     const stakeToken = 'BREW';
-    const depositFee = data.querySelector(':scope > div:nth-child(3)').textContent.split(':')[1].trim();
-    const APR = data.querySelector(':scope > div:nth-child(7) > div:nth-child(2)').textContent;
+    const depositFee = data.querySelector(':scope > div:nth-child(2) > div > div').textContent.trim();
+
+    const APR = data.querySelector(':scope > div:nth-child(2) > div:nth-child(2) > div').textContent;
 
     const details = poolCard.querySelector(':scope > div:nth-child(2)');
+    
     const totalLiquidity = details.querySelector(':scope > div:nth-child(2) > div > div:nth-child(2)').textContent;
 
     return ({
