@@ -3,7 +3,7 @@ const id = 'pancakeswap';
 const url = 'https://pancakeswap.finance/pools';
 
 var onPreScrap = () => {
-  const poolCards = document.querySelectorAll('div#root > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div');
+  const poolCards = document.querySelectorAll('div#root > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div');
 
   [...poolCards].forEach((poolCard) => {
     const details = poolCard.querySelector(':scope > div:nth-child(3)');
@@ -23,10 +23,10 @@ var onPreScrap = () => {
 }
 
 var onScrap = () => { 
-  const poolCards = document.querySelectorAll('div#root > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div');
+  const poolCards = document.querySelectorAll('div#root > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div');
 
   var info = [...poolCards].map((poolCard) => {
-    const title = poolCard.querySelector(':scope > div:nth-child(1) > div > div > h2').textContent.trim()
+    const title = poolCard.querySelector(':scope > div > div > div > h2').textContent.trim()
 
     if (title.indexOf('Your Project') === 0) {
       return;
