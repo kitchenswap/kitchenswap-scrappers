@@ -45,11 +45,15 @@ const main = async () => {
 
   for(let i = 0; i < scrappers.length; i++) {
     const scrapper = scrappers[i];
-    const { id, url, onPreScrap, onScrap, delay = 10000 } = scrapper;
+    const { id, url, onPreLoad, onPreScrap, onScrap, delay = 10000 } = scrapper;
 
     const page = await context.newPage();
     await page.goto(url);
     await page.waitForTimeout(delay);
+    if (onPreLoad) {
+      await page.evaluate(onPreLoad);
+      await page.waitForTimeout(5000);
+    }
     if (onPreScrap) {
       await page.evaluate(onPreScrap);
       await page.waitForTimeout(500);

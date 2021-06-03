@@ -2,6 +2,23 @@ const id = 'pancakeswap';
 
 const url = 'https://pancakeswap.finance/pools';
 
+var onPreLoad = () => {
+  var doScroll = () => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+  
+  var scrollListener = () => setTimeout(doScroll, 0);
+
+  setTimeout(() => {
+    removeEventListener('scroll', scrollListener);
+  }, 3000);
+
+  addEventListener('scroll', scrollListener);
+  
+  document.querySelector('#clickPoolCardView').click();
+  doScroll();
+}
+
 var onPreScrap = () => {
   const poolCards = document.querySelectorAll('div#root > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div');
 
@@ -59,6 +76,7 @@ var onScrap = () => {
 
 module.exports = {
   id,
+  onPreLoad,
   onPreScrap,
   onScrap,
   url
