@@ -7,11 +7,11 @@ var onPreLoad = () => {
     window.scrollTo(0, document.body.scrollHeight);
   }
   
-  var scrollListener = () => setTimeout(doScroll, 0);
+  var scrollListener = () => setTimeout(doScroll, 1000);
 
   setTimeout(() => {
     removeEventListener('scroll', scrollListener);
-  }, 3000);
+  }, 10000);
 
   addEventListener('scroll', scrollListener);
   

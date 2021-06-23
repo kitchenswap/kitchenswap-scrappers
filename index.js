@@ -52,7 +52,7 @@ const main = async () => {
     await page.waitForTimeout(delay);
     if (onPreLoad) {
       await page.evaluate(onPreLoad);
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(15000);
     }
     if (onPreScrap) {
       await page.evaluate(onPreScrap);
