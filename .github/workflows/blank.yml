@@ -14,14 +14,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install
-        # NOTE: this pins the action to a specific commit sha for security
-        # reasons but you can also use a version tag if desired. For example:
-        # ianwalter/playwright-container@v1.1.1
-        uses: ianwalter/playwright-container@ec253ce35910412cc6607f5d7cfbbe89fb77c9b4
+        uses: ianwalter/playwright-container
         with:
           args: npm ci
       - name: Test
-        uses: ianwalter/playwright-container@ec253ce35910412cc6607f5d7cfbbe89fb77c9b4
+        uses: ianwalter/playwright-container
         with:
           args: npm run save
       - name: Deploy Dexes
