@@ -16,7 +16,7 @@ jobs:
       - name: Install
         uses: ianwalter/playwright-container@ae81040c43e127f0b331bb55e7f779d8ed005396
         with:
-          args: npm ci
+          args: npm ci && npx playwright install
       - name: Test
         uses: ianwalter/playwright-container@ae81040c43e127f0b331bb55e7f779d8ed005396
         with:
