@@ -11,11 +11,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - uses: microsoft/playwright-github-action@v1
+      - name: Install
         run: npm install
+      - name: Scrap
         run: npm run save
       - name: Deploy Dexes
         uses: dmnemec/copy_file_to_another_repo_action@main
