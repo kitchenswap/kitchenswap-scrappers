@@ -13,18 +13,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install
-        uses: ianwalter/playwright-container@ae81040c43e127f0b331bb55e7f779d8ed005396
-        with:
-          args: npm ci
-      - name: Install 2
-        uses: ianwalter/playwright-container@ae81040c43e127f0b331bb55e7f779d8ed005396
-        with:
-          args: npx playwright install
-      - name: Test
-        uses: ianwalter/playwright-container@ae81040c43e127f0b331bb55e7f779d8ed005396
-        with:
-          args: npm run save
+      - uses: actions/setup-node@v1
+      - uses: microsoft/playwright-github-action@v1
+        run: npm install
+        run: npm run save
       - name: Deploy Dexes
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
