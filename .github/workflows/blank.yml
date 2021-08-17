@@ -14,11 +14,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install
-        uses: ianwalter/playwright-container@2.2.0
+        uses: ianwalter/playwright-container@ae81040c43e127f0b331bb55e7f779d8ed005396
         with:
           args: npm ci
       - name: Test
-        uses: ianwalter/playwright-container@2.2.0
+        uses: ianwalter/playwright-container@ae81040c43e127f0b331bb55e7f779d8ed005396
         with:
           args: npm run save
       - name: Deploy Dexes
