@@ -43,7 +43,7 @@ jobs:
         run: npm run token-logos
       - name: Deploy New logos
         if: hashFiles('token-logos.json') != ''
-        uses: dmnemec/copy_file_to_another_repo_action@main
+        uses: dmnemec/copy_file_to_another_repo_action@c93037aa10fa8893de271f19978c980d0c1a9b37
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
